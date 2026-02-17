@@ -1,0 +1,35 @@
+name: Build dylib
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    
+uses: actions/checkout@v4,
+
+    
+name: Build dylib
+    run: |
+      clang -dynamiclib \-isysroot $(xcrun --sdk iphoneos --show-sdk-path) \-arch arm64 \-framework UIKit \-framework Foundation \-framework QuartzCore \-framework CoreGraphics \-framework AVFoundation \-framework Speech \-fobjc-arc \-o ACCompanionImproved.dylib ACCompanionImproved.m,
+
+    
+name: Upload dylib
+    uses: actions/upload-artifact@v4
+    with:
+      name: compiled-dylib
+      path: ACCompanionImproved.dylib,
+:thumbsup:
+Click to react
+:regional_indicator_s:
+Click to react
+:white_check_mark:
+Click to react
+Add Reaction
+Edit
+Forward
+More
+
+Message #general
